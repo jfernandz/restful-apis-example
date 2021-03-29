@@ -4,9 +4,8 @@ from entities.database_conn import db, app
 from entities.Equipment import EquipmentSchema, Equipment
 
 # init Schema
-product_schema = EquipmentSchema()
-# product_schema = ProductSchema(strict=True)
-# products_schema = ProductSchema(strict=True, many=True)
+equipment_schema = EquipmentSchema()
+equipments_schema = EquipmentSchema(many=True)
 db.create_all()
 
 
@@ -22,13 +21,15 @@ def add_equipment():
     db.session.add(new_product)
     db.session.commit()
 
-    return product_schema.jsonify(new_product)
+    return equipment_schema.jsonify(new_product)
 
 
 @app.route('/', methods=['GET'])
 def get_equipments():
-    results = db.session.query(Equipment).all()
-    return jsonify(results)
+    equipments = Equipment.query.all()
+    results = equipments_schema.dump(equipments)
+    print(results)
+    return {"Equipments": results}
 
 
 # Run sever

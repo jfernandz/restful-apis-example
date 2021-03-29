@@ -8,4 +8,4 @@ source "$(poetry env info --path)"/bin/activate
 # running the app.run() method
 #export FLASK_APP=./src/main.py
 #flask run -h 0.0.0.0
-python -m src.main
+python src/main.py

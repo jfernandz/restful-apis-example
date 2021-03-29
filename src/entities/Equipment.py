@@ -1,4 +1,5 @@
 from .database_conn import db, ma
+from flask_marshmallow import fields
 
 
 # Equipment class model
@@ -17,5 +18,11 @@ class Equipment(db.Model):
 
 
 class EquipmentSchema(ma.Schema):
+    # id = fields.Int(dump_only=True)
+    # name = fields.Str()
+    # description = fields.Str()
+    # status = fields.Bool()
+    # exec_path = fields.Str()
+
     class Meta:
         fields = ('_id', 'name', 'description', 'status', 'exec_path')
