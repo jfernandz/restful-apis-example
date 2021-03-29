@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "backend"
+name = "restful-apis"
 version = "0.1.0"
-description = ""
+description = "Playing around with poetry and RESTful APIs"
 authors = ["Javier Fernández <jfernandez@joifilabs.com>"]
 
 [tool.poetry.dependencies]

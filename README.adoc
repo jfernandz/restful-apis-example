@@ -3,3 +3,5 @@
 This is a repo just to play with RESTful APIs and understand how they are integrated with databases and ORMs.
 
 In this case I'm using `Flask`, `SQLAlchemy` and `Marshmallow`
+
+This project uses https://medium.com/@kelvin.onkundi/python-rest-apis-with-flask-sqlalchemy-and-marshmallow-501b2d803a25[Kelvin Onkundi's article] as a starting point.
