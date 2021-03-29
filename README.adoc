@@ -1,0 +1,5 @@
+= RESTful APIs tests
+
+This is a repo just to play with RESTful APIs and understand how they are integrated with databases and ORMs.
+
+In this case I'm using `Flask`, `SQLAlchemy` and `Marshmallow`
