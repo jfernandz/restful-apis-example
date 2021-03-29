@@ -26,7 +26,7 @@ class Equipment(db.Model):
     _id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     description = db.Column(db.String(200))
-    status = db.Column(db.Integer)
+    status = db.Column(db.Boolean)
     exec_path = db.Column(db.String(200))
 
     def __init__(self, name, description, status, exec_path):
@@ -45,6 +45,7 @@ class ProductSchema(ma.Schema):
 product_schema = ProductSchema()
 # product_schema = ProductSchema(strict=True)
 # products_schema = ProductSchema(strict=True, many=True)
+db.create_all()
 
 
 # create_product:
