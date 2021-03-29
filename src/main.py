@@ -1,48 +1,10 @@
-import os
-from flask import Flask, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
-from flask_marshmallow import Marshmallow
-
-
-# init app
-app = Flask(__name__)
-basedir = os.path.abspath(os.path.dirname(__file__))
-
-# database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-    os.path.join(basedir, 'db.sqlite')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# INIT DB
-db = SQLAlchemy(app)
-
-# init Marshmallow
-ma = Marshmallow(app)
-
-# product class/model
-
-
-class Equipment(db.Model):
-    _id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
-    description = db.Column(db.String(200))
-    status = db.Column(db.Boolean)
-    exec_path = db.Column(db.String(200))
-
-    def __init__(self, name, description, status, exec_path):
-        self.name = name
-        self.description = description
-        self.status = status
-        self.exec_path = exec_path
-
-
-class ProductSchema(ma.Schema):
-    class Meta:
-        fields = ('_id', 'name', 'description', 'status', 'exec_path')
-
+# coding=utf-8
+from flask import request, jsonify
+from entities.database_conn import db, app
+from entities.Equipment import EquipmentSchema, Equipment
 
 # init Schema
-product_schema = ProductSchema()
+product_schema = EquipmentSchema()
 # product_schema = ProductSchema(strict=True)
 # products_schema = ProductSchema(strict=True, many=True)
 db.create_all()
