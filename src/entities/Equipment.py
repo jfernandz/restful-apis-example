@@ -2,7 +2,7 @@ from .database_conn import db, ma
 from marshmallow import fields
 
 
-# Equipment class model
+# Equipment class model in the database
 class Equipment(db.Model):
     __tablename__ = 'equipments'
 
@@ -21,6 +21,7 @@ class Equipment(db.Model):
         self.url = url
 
 
+# Equipment schema (for serialize/deserialize)
 class EquipmentSchema(ma.Schema):
     _id = fields.Int(dump_only=True)
     name = fields.Str()
